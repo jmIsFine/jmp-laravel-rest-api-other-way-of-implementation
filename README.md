@@ -1,0 +1,1 @@
+# jmp-laravel-rest-api-other-way-of-implementation
