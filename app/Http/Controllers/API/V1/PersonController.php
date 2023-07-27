@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePersonRequest;
 use App\Http\Resources\V1\PersonResource;
+use App\Traits\HttpResponses;
 
 class PersonController extends Controller
 {
+    use HttpResponses;
+
     public function index()
     {
         //Returns all the data from the table
@@ -31,7 +34,9 @@ class PersonController extends Controller
     public function store(StorePersonRequest $request)
     {
         Person::create($request->validated());
-        return response()->json("Created Successfuly!");
+        
+        //return response()->json("Created Successfuly!");
+        return $this->success();
     }
 
     public function update(StorePersonRequest $request, Person $person)
@@ -39,7 +44,7 @@ class PersonController extends Controller
         $person->update($request->validated());
         return response()->json("Updated Successfully!");
     }
-
+    
     public function destroy(Person $person)
     {
         $person->delete();

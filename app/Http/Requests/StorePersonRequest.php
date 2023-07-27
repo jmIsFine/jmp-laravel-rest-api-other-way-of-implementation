@@ -25,7 +25,8 @@ class StorePersonRequest extends FormRequest
     public function rules()
     {
         return [
-            'Name' => ['required', 'min:3', 'max:50'],
+            //'Name' => ['required', 'min:3', 'max:50'],
+            'Name' => ['required', 'max:50'],
 
             //previous setup:
             // 'Email' => ['required', 'unique:person,email'],
@@ -35,8 +36,8 @@ class StorePersonRequest extends FormRequest
 
             //Setup 1: Model's Validation Rules
             //Requirements: None
-            //'Email' => ['required', 'unique:person,Email,' . $this->person->id],
-            //'Phone' => ['required', 'unique:person,Phone,' . $this->person->id]
+            // 'Email' => ['required', 'unique:person,Email,' . $this->person->id],
+            // 'Phone' => ['required', 'unique:person,Phone,' . $this->person->id]
             
             //Setup 2: Custom Validation Rules
             //Requirements: import the "use Illuminate\Validation\Rule;"
